@@ -44,12 +44,23 @@ export async function fetchRecentMessages(perChannel = 30) {
       messages.push({
         channelId: channel.id,
         channelName: channel.name,
+        senderId: m.user || '',
         senderName: users[m.user] || m.user || 'Unknown',
-        text: m.text,
+        text: resolveMentions(m.text, users),
         ts: m.ts,
         tsDate: new Date(Number(m.ts) * 1000),
       });
     }
   }
   return messages;
+}
+
+// Convert raw Slack markup (<@U..>, <#C..|name>, <!channel>, links) to plain text.
+function resolveMentions(text, users) {
+  return text
+    .replace(/<@([A-Z0-9]+)>/g, (_, id) => '@' + (users[id] || id))
+    .replace(/<#[A-Z0-9]+\|([^>]+)>/g, (_, name) => '#' + name)
+    .replace(/<!(channel|here|everyone)>/g, (_, k) => '@' + k)
+    .replace(/<([^>|]+)\|([^>]+)>/g, (_, url, label) => label)
+    .replace(/<([^>]+)>/g, (_, url) => url);
 }

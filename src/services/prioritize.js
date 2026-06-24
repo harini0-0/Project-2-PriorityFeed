@@ -18,8 +18,14 @@ function matches(message, rule) {
   switch (rule.type) {
     case 'channel':
       return (message.channelName || '').toLowerCase() === value;
-    case 'sender':
-      return (message.senderName || '').toLowerCase().includes(value);
+    case 'sender': {
+      // Match the typed name (substring) or the raw Slack user ID.
+      const id = value.replace(/[<@>]/g, '');
+      return (
+        (message.senderName || '').toLowerCase().includes(value) ||
+        (message.senderId || '').toLowerCase() === id
+      );
+    }
     case 'keyword':
       return (message.text || '').toLowerCase().includes(value);
     default:

@@ -15,6 +15,7 @@ export async function upsertMessage(userId, msg) {
     {
       $set: {
         channelName: msg.channelName,
+        senderId: msg.senderId,
         senderName: msg.senderName,
         text: msg.text,
         tsDate: msg.tsDate,
@@ -74,6 +75,23 @@ export async function getAllForUser(userId) {
   return collection()
     .find({ userId: new ObjectId(userId) })
     .toArray();
+}
+
+// Distinct senders and channels seen so far, used to populate rule dropdowns.
+export async function getFacets(userId) {
+  const uid = new ObjectId(userId);
+  const senders = await collection()
+    .aggregate([
+      { $match: { userId: uid } },
+      { $group: { _id: { name: '$senderName', id: '$senderId' } } },
+      { $sort: { '_id.name': 1 } },
+    ])
+    .toArray();
+  const channels = await collection().distinct('channelName', { userId: uid });
+  return {
+    senders: senders.map((s) => s._id).filter((s) => s.name),
+    channels: channels.sort(),
+  };
 }
 
 // Count of unread messages grouped by priority.

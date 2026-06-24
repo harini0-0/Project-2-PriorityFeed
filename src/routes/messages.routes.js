@@ -4,6 +4,7 @@ import {
   updateMessage,
   deleteMessage,
   unreadSummary,
+  getFacets,
 } from '../collections/messages.js';
 import { requireAuth } from '../auth/auth.js';
 
@@ -23,6 +24,10 @@ router.get('/', async (req, res) => {
 
 router.get('/summary', async (req, res) => {
   res.json(await unreadSummary(req.userId));
+});
+
+router.get('/facets', async (req, res) => {
+  res.json(await getFacets(req.userId));
 });
 
 router.patch('/:id', async (req, res) => {

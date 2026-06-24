@@ -15,7 +15,11 @@ export async function renderRules(container) {
        Add rules by channel, sender, or keyword.</p>
   `;
 
-  const form = buildForm(() => load());
+  const facets = await api('/api/messages/facets').catch(() => ({
+    senders: [],
+    channels: [],
+  }));
+  const form = buildForm(() => load(), facets);
   const list = document.createElement('section');
   list.className = 'rule-list';
 
@@ -29,15 +33,39 @@ export async function renderRules(container) {
   await load();
 }
 
-function buildForm(onCreated) {
+function buildForm(onCreated, facets) {
   const form = document.createElement('form');
   form.className = 'rule-form';
 
   const type = optionSelect('type', TYPES);
   const value = document.createElement('input');
   value.name = 'value';
-  value.placeholder = 'e.g. announcements, Professor, exam';
   value.required = true;
+
+  // Suggest real channels / senders (from synced messages) based on the type.
+  const datalist = document.createElement('datalist');
+  datalist.id = 'rule-suggestions';
+  value.setAttribute('list', datalist.id);
+
+  const syncSuggestions = () => {
+    const items =
+      type.value === 'channel'
+        ? facets.channels
+        : type.value === 'sender'
+          ? facets.senders.map((s) => s.name)
+          : [];
+    datalist.innerHTML = '';
+    for (const item of items) {
+      const opt = document.createElement('option');
+      opt.value = item;
+      datalist.append(opt);
+    }
+    value.placeholder =
+      type.value === 'keyword' ? 'e.g. exam, deadline' : 'Pick or type…';
+  };
+  type.addEventListener('change', syncSuggestions);
+  syncSuggestions();
+
   const priority = optionSelect('priority', PRIORITIES);
 
   const submit = document.createElement('button');
@@ -76,7 +104,7 @@ function buildForm(onCreated) {
   });
 
   const wrapper = document.createElement('section');
-  wrapper.append(form, error);
+  wrapper.append(form, datalist, error);
   return wrapper;
 }
 
