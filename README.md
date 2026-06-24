@@ -9,7 +9,7 @@ first.
 - **Author:** Harini Thirunavukkarasan
 - **Class:** Web Development (Online) — Northeastern University
 - **Live app:** (https://priorityfeed.onrender.com)
-- **Demo video:** <!-- TODO: paste public narrated video link here -->
+- **Demo video:** (https://youtu.be/uFT5mPKZACY?si=3ARwz4lSmMo6-N8z)
 
 ---
 
