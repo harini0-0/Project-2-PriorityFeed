@@ -1,0 +1,48 @@
+.rules-intro h1 {
+  margin: 0 0 0.25rem;
+}
+
+.rules-intro p {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+.rule-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.rule-form .field {
+  flex: 1 1 140px;
+}
+
+.rule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.rule-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.rule-row .rule-text {
+  flex: 1;
+}
+
+.rule-row .action {
+  font-size: 0.8rem;
+}

@@ -4,11 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PriorityFeed</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/rules.css" />
   </head>
   <body>
-    <main>
-      <h1>PriorityFeed</h1>
-      <p>Academic Communication Prioritizer — setup in progress.</p>
-    </main>
+    <header id="topbar" hidden>
+      <span class="brand">PriorityFeed</span>
+      <nav>
+        <button type="button" data-route="dashboard">Dashboard</button>
+        <button type="button" data-route="rules">Rules</button>
+        <button type="button" id="logout-btn">Log out</button>
+      </nav>
+    </header>
+    <main id="app"></main>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

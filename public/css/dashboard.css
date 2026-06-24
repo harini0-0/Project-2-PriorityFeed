@@ -1,0 +1,85 @@
+.summary {
+  margin-bottom: 1.25rem;
+}
+
+.summary h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.summary-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.toolbar .check {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--normal);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.card.critical {
+  border-left-color: var(--critical);
+}
+.card.important {
+  border-left-color: var(--important);
+}
+.card.read {
+  opacity: 0.6;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.45rem;
+}
+
+.card-head .meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.card-text {
+  margin: 0 0 0.7rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+}
