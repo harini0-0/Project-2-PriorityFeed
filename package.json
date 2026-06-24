@@ -13,7 +13,7 @@
   "author": "Harini Thirunavukkarasan",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "dependencies": {
     "@slack/web-api": "^7.8.0",
