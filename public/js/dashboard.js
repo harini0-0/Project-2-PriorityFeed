@@ -178,7 +178,13 @@ function messageCard(m, refresh) {
     refresh();
   });
 
-  actions.append(bookmark, read);
+  const dismiss = actionButton('Dismiss');
+  dismiss.addEventListener('click', async () => {
+    await api(`/api/messages/${m._id}`, { method: 'DELETE' });
+    refresh();
+  });
+
+  actions.append(bookmark, read, dismiss);
   card.append(head, body, actions);
   return card;
 }
