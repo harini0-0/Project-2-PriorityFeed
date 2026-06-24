@@ -1,0 +1,27 @@
+{
+  "name": "priorityfeed",
+  "version": "1.0.0",
+  "description": "PriorityFeed – Academic Communication Prioritizer. Collects Slack course messages and sorts them by user-defined priority rules.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "author": "Harini Thirunavukkarasan",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/web-api": "^7.8.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
+  }
+}
