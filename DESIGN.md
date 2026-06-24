@@ -80,73 +80,29 @@ discussions.
 
 ### 4.1 Login / Sign-up
 
-```
-                  ┌───────────────────────────────────┐
-                  │            PriorityFeed            │
-                  │   Prioritize your course Slack.    │
-                  │                                    │
-                  │   Email                            │
-                  │   [______________________________] │
-                  │   Password                         │
-                  │   [______________________________] │
-                  │                                    │
-                  │            [  Log in  ]            │
-                  │                                    │
-                  │     New here? Create an account    │
-                  └───────────────────────────────────┘
-```
+A single card handles both login and sign-up. The user enters an email and
+password; a link toggles between the two modes.
+
+![Login wireframe](docs/wireframes/login.png)
 
 ### 4.2 Dashboard
 
-```
-┌ PriorityFeed ─────────────────────  Dashboard | Rules | Log out ┐
-│                                                                  │
-│  Unread                                                          │
-│  ( Critical: 3 )  ( Important: 5 )  ( Normal: 12 )               │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────────┐│
-│  │ [ Sync Slack ]   Priority ▼   Channel ▼   ☐ Bookmarked only ││
-│  └────────────────────────────────────────────────────────────┘│
-│                                                                  │
-│  ┃ (Critical)  #announcements · John Guerra · Jun 24, 9:05 AM   │
-│  ┃ Reminder: Project 2 is due tonight at 11:59pm.               │
-│  ┃ [ ☆ Bookmark ]  [ Mark read ]                                │
-│                                                                  │
-│  ┃ (Important) #project · TA Aishwarya · Jun 23, 4:12 PM        │
-│  ┃ Office hours moved to Friday for project help.               │
-│  ┃ [ ★ Bookmarked ]  [ Mark read ]                              │
-│                                                                  │
-│  ┃ (Normal)    #random · Classmate · Jun 23, 1:30 PM            │
-│  ┃ Anyone up for a study group this weekend?                    │
-│  ┃ [ ☆ Bookmark ]  [ Mark read ]                                │
-└──────────────────────────────────────────────────────────────────┘
-```
+The main screen. An **Unread** summary shows counts per priority. A toolbar offers
+**Sync Slack** plus filters (priority, channel, bookmarked). Each message is a
+card with a priority badge, channel/sender/time, the message text, and actions
+(Bookmark, Mark read, Dismiss). The colored left border encodes priority —
+red = Critical, amber = Important, blue = Normal.
 
-Left border color encodes priority: red = Critical, amber = Important,
-blue = Normal.
+![Dashboard wireframe](docs/wireframes/dashboard.png)
 
 ### 4.3 Rules
 
-```
-┌ PriorityFeed ─────────────────────  Dashboard | Rules | Log out ┐
-│                                                                  │
-│  Prioritization Rules                                            │
-│  Messages matching a rule are grouped as Critical, Important,    │
-│  or Normal. Add rules by channel, sender, or keyword.            │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────────┐│
-│  │ Match by [ sender ▼ ]  Value [ John Guerra…▼ ]              ││
-│  │ Priority [ Critical ▼ ]                      [ Add rule ]   ││
-│  └────────────────────────────────────────────────────────────┘│
-│                                                                  │
-│  (Critical)  sender: "John Guerra"                  [ Delete ]  │
-│  (Important) channel: "announcements"               [ Delete ]  │
-│  (Critical)  keyword: "deadline"                    [ Delete ]  │
-└──────────────────────────────────────────────────────────────────┘
-```
+Where prioritization is configured. A form adds a rule by **channel**, **sender**,
+or **keyword** mapped to a priority. When matching by sender or channel, the Value
+field auto-suggests real names/channels from already-synced messages. Existing
+rules are listed below with a delete action.
 
-When **Match by = sender** or **channel**, the Value field auto-suggests real
-names/channels pulled from already-synced messages.
+![Rules wireframe](docs/wireframes/rules.png)
 
 ---
 
