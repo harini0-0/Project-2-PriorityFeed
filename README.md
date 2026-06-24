@@ -38,7 +38,6 @@ messages — reducing information overload and missed deadlines.
 >
 > ![Rules](docs/screenshots/rules.png)
 
-
 ---
 
 ## Features
@@ -139,7 +138,14 @@ Open <http://localhost:3000>, sign up, add a rule, and click **Sync Slack**.
 ```bash
 npm run lint       # ESLint
 npm run format     # Prettier
+npm run seed       # Populate the database with sample course messages
 ```
+
+### Sample data
+
+`npm run seed` creates a demo account (`demo@priorityfeed.app`) and loads a large
+batch of realistic course messages so the database can be explored at scale. Your
+own account always shows live messages pulled straight from Slack via **Sync**.
 
 ---
 
