@@ -8,8 +8,7 @@ first.
 
 - **Author:** Harini Thirunavukkarasan
 - **Class:** Web Development (Online) — Northeastern University
-  · [Course link](<!-- TODO: paste course/class link here -->)
-- **Live app:** <!-- TODO: paste your Render URL, e.g. https://priorityfeed.onrender.com -->
+- **Live app:** (https://priorityfeed.onrender.com)
 - **Demo video:** <!-- TODO: paste public narrated video link here -->
 
 ---
@@ -31,13 +30,14 @@ messages — reducing information overload and missed deadlines.
 
 > Dashboard with prioritized messages
 >
-> ![Dashboard](docs/screenshots/dashboard.png)
+> ![Dashboard](docs/screenshots/dashboard-1.png)
+> ![Dashboard](docs/screenshots/dashboard-2.png)
+> ![Dashboard](docs/screenshots/dashboard-3.png)
 
 > Prioritization rules
 >
 > ![Rules](docs/screenshots/rules.png)
 
-<!-- TODO: add the three PNGs above into docs/screenshots/ -->
 
 ---
 
