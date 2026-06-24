@@ -8,8 +8,7 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "seed": "node scripts/seed.js"
+    "format": "prettier --write ."
   },
   "author": "Harini Thirunavukkarasan",
   "license": "MIT",
