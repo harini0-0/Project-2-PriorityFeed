@@ -12,6 +12,9 @@
   },
   "author": "Harini Thirunavukkarasan",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@slack/web-api": "^7.8.0",
     "dotenv": "^16.4.7",

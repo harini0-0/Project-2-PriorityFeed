@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: priorityfeed
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: SLACK_TOKEN
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: MONGODB_DB
+        value: priorityfeed
